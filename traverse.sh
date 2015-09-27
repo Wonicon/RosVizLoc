@@ -2,7 +2,7 @@
 
 label=1
 CMD=`pwd`/gen_svm_train.py
-SUBDIR=$(find -mindepth 1 -maxdepth 1 -type d)
+SUBDIR=$(find img/ -mindepth 1 -maxdepth 1 -type d)
 
 echo $SUBDIR
 for DIR in $SUBDIR

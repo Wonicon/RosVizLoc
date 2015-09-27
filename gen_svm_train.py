@@ -14,8 +14,9 @@ def vector(fp,filename):
         value = value * 255 + data
         rgb = rgb + 1
         if rgb == 3:
-            fp.write("%d:%d " % (i, value))
             i = i + 1
+            if value != 0:
+                fp.write(" %d:%d" % (i, value))
             value = 0
             rgb = 0
 
@@ -24,9 +25,10 @@ if len(sys.argv) < 3:
     exit()
 
 fp = open("train", "a")
-fp.write(sys.argv[1] + " ")
 
 for arg in sys.argv[2:]:
+    fp.write(sys.argv[1])
     print os.path.abspath(arg)
     vector(fp, arg)
+    fp.write("\n")
 fp.close
